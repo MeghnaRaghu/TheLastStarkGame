@@ -1,0 +1,187 @@
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Full-screen background for the entire game */
+    body {
+        width: 100vw;
+        height: 100vh;
+        background: url('images/wallpapers.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Cinzel', serif; /* Medieval theme */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 2s ease-in-out; /* Smooth fade-in */
+    }
+
+    /* Overlay to make text more readable */
+    #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Start screen styling with fade-in effect */
+    #start-screen {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 2;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Title Styling */
+    h1 {
+        font-size: 2.8rem;
+        font-family: 'Cinzel Decorative', serif; /* Noble, medieval font */
+        text-transform: uppercase;
+        text-align: center;
+        color: rgb(66, 10, 10); /* Golden text like the Lannisters */
+        text-shadow: 4px 4px 10px rgb(138, 95, 105), 0 0 15px rgb(0, 0, 0); /* Fiery, glowing effect */
+        animation: glowText 3s infinite alternate;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    #intro-text {
+        font-size: 1.5rem;
+        text-align: center;
+        font-style: italic;
+        color: silver;
+        text-shadow: 2px 2px 8px black;
+        margin-top: 2px;
+        padding: 0 10px;
+    }
+
+    /* Button Animations */
+    button {
+        font-family: 'Cinzel', serif;
+        background: #222;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border: 2px solid rgb(37, 32, 33);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0px 0px 10px rgb(46, 39, 40);
+    }
+
+    button:hover {
+        background: rgb(88, 73, 76);
+        color: white;
+        box-shadow: 0px 0px 20px rgb(68, 55, 58);
+        transform: scale(1.1);
+    }
+
+    /* Hide game container initially with fade-in effect */
+    .hidden {
+        display: none;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    /* Game container styling */
+    #game-container {
+        width: 80%;
+        max-width: 600px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 2;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Story text */
+    #story-text {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    /* Choice Container - Updated to 2x2 Grid */
+    #choices {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-gap: 15px; /* Space between choices */
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        max-width: 500px; /* Restrict width for proper alignment */
+        margin: auto;
+    }
+
+    /* Choice Buttons */
+    .choice-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 180px;
+        max-width: 250px;
+        padding: 10px;
+        font-size: 1rem;
+        background: #222;
+        color: white;
+        border: 2px solid rgb(59, 45, 48);
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgb(59, 45, 48);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Hover Effects */
+    .choice-button:hover {
+        background: rgb(77, 63, 65);
+        box-shadow: 0px 0px 20px rgb(56, 43, 46);
+        transform: scale(1.1);
+    }
+
+    /* Ensure images inside buttons are properly aligned */
+    .choice-image {
+        width: 100%;
+        max-height: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes glowText {
+        0% {
+            text-shadow: 3px 3px 10px rgb(73, 57, 60);
+        }
+        100% {
+            text-shadow: 5px 5px 20px rgb(63, 46, 46);
+        }
+    }
+
+    /* Responsive layout for smaller screens */
+    @media (max-width: 500px) {
+        #choices {
+            grid-template-columns: repeat(1, 1fr); /* Stack buttons in one column */
+        }
+    }
